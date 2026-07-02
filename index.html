@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harsh Bantuya — Python & DevOps Engineer</title>
+<meta name="description" content="Harsh Bantuya — Software Engineer specializing in Python backend development and AWS DevOps. FastAPI, Kubernetes, CI/CD, and cloud infrastructure.">
+<style>
+  :root{
+    --bg:#0b0f14;
+    --panel:#111823;
+    --panel-2:#0e141d;
+    --line:#1e2a38;
+    --text:#e6edf3;
+    --muted:#8b98a5;
+    --accent:#3fd0c9;
+    --accent-2:#7c9cff;
+    --mono:'SF Mono',SFMono-Regular,ui-monospace,'Cascadia Code','JetBrains Mono',Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(60rem 40rem at 80% -10%,rgba(124,156,255,.08),transparent 60%),radial-gradient(50rem 40rem at -10% 20%,rgba(63,208,201,.07),transparent 55%);
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);background:rgba(11,15,20,.7);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-family:var(--mono);font-weight:600;color:var(--accent)}
+  .brand span{color:var(--muted)}
+  .navlinks{display:flex;gap:22px;font-size:14px}
+  .navlinks a{color:var(--muted);transition:color .2s}
+  .navlinks a:hover{color:var(--text)}
+  @media(max-width:600px){.navlinks{display:none}}
+
+  /* HERO */
+  header{padding:90px 0 60px}
+  .kicker{font-family:var(--mono);color:var(--accent);font-size:14px;letter-spacing:.5px;margin-bottom:16px}
+  h1{font-size:clamp(38px,7vw,64px);line-height:1.05;font-weight:800;letter-spacing:-1px}
+  .grad{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{margin-top:22px;font-size:19px;color:var(--muted);max-width:620px}
+  .cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{font-family:var(--mono);font-size:14px;padding:11px 20px;border-radius:10px;border:1px solid var(--line);transition:.2s;display:inline-flex;align-items:center;gap:8px}
+  .btn.primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#06121a;border-color:transparent;font-weight:600}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* SECTIONS */
+  section{padding:54px 0;border-top:1px solid var(--line)}
+  .sechead{font-family:var(--mono);color:var(--muted);font-size:14px;margin-bottom:26px}
+  .sechead b{color:var(--accent)}
+  h2{font-size:26px;font-weight:700;margin-bottom:6px}
+
+  /* SKILLS */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .skillcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .skillcard h3{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:12px;font-family:var(--mono)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-family:var(--mono);font-size:12.5px;color:var(--text);background:var(--panel-2);border:1px solid var(--line);padding:5px 10px;border-radius:8px}
+
+  /* EXPERIENCE / PROJECTS */
+  .proj{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px;margin-bottom:22px;transition:.2s}
+  .proj:hover{border-color:#2c3e52}
+  .proj .top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+  .proj h3{font-size:20px}
+  .proj .role{font-family:var(--mono);font-size:13px;color:var(--accent-2)}
+  .proj .meta{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+  .proj p.desc{color:var(--muted);margin:10px 0 16px}
+  .proj ul{list-style:none;display:grid;gap:10px}
+  .proj li{position:relative;padding-left:22px;font-size:15px;color:var(--text)}
+  .proj li::before{content:"▹";position:absolute;left:0;color:var(--accent)}
+  .stack{margin-top:16px;display:flex;flex-wrap:wrap;gap:7px}
+  .stack .tag{font-size:11.5px;color:var(--muted)}
+
+  /* ABOUT */
+  .about{font-size:17px;color:var(--muted);max-width:680px}
+  .about b{color:var(--text)}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:8px}
+  .clink{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:.2s}
+  .clink:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .clink .ico{font-size:20px}
+  .clink small{display:block;color:var(--muted);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:1px}
+
+  footer{padding:40px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-family:var(--mono);font-size:13px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">harsh<span>@</span>bantuya<span>:~$</span></div>
+    <div class="navlinks">
+      <a href="#skills">skills</a>
+      <a href="#work">work</a>
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">// Software Engineer L2 · Python &amp; DevOps</div>
+    <h1>Harsh Bantuya<br><span class="grad">builds &amp; ships backend systems.</span></h1>
+    <p class="lead">End-to-end backend + DevOps engineer with ~3 years shipping async FastAPI microservices and running them on AWS — from code to CI/CD to production observability.</p>
+    <div class="cta">
+      <a class="btn primary" href="#contact">Get in touch →</a>
+      <a class="btn ghost" href="https://linkedin.com/in/harsh-bantuya" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="mailto:harshbantuya@gmail.com">Email</a>
+    </div>
+  </div>
+</header>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sechead"><b>01.</b> / technical skills</div>
+    <div class="skills">
+      <div class="skillcard">
+        <h3>Languages</h3>
+        <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Bash</span></div>
+      </div>
+      <div class="skillcard">
+        <h3>Backend</h3>
+        <div class="tags"><span class="tag">FastAPI</span><span class="tag">Uvicorn</span><span class="tag">Pydantic</span><span class="tag">SQLAlchemy</span><span class="tag">asyncpg</span><span class="tag">Alembic</span><span class="tag">APScheduler</span></div>
+      </div>
+      <div class="skillcard">
+        <h3>Cloud — AWS</h3>
+        <div class="tags"><span class="tag">EKS</span><span class="tag">ECS</span><span class="tag">ECR</span><span class="tag">API Gateway</span><span class="tag">S3</span><span class="tag">CloudWatch</span><span class="tag">IAM</span><span class="tag">VPC</span><span class="tag">Secrets Manager</span></div>
+      </div>
+      <div class="skillcard">
+        <h3>DevOps</h3>
+        <div class="tags"><span class="tag">Docker</span><span class="tag">Jenkins CI/CD</span><span class="tag">Kubernetes</span><span class="tag">boto3</span></div>
+      </div>
+      <div class="skillcard">
+        <h3>Observability</h3>
+        <div class="tags"><span class="tag">OpenTelemetry</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">CloudWatch</span></div>
+      </div>
+      <div class="skillcard">
+        <h3>Data &amp; Secrets</h3>
+        <div class="tags"><span class="tag">PostgreSQL / PostGIS</span><span class="tag">Redis</span><span class="tag">HashiCorp Vault</span></div>
+      </div>
+      <div class="skillcard">
+        <h3>Integrations</h3>
+        <div class="tags"><span class="tag">BSE Star MF</span><span class="tag">Razorpay</span><span class="tag">Digio KYC</span><span class="tag">Firebase</span><span class="tag">Twilio / MSG91</span><span class="tag">Resend</span></div>
+      </div>
+      <div class="skillcard">
+        <h3>Tools &amp; Testing</h3>
+        <div class="tags"><span class="tag">pytest</span><span class="tag">Git</span><span class="tag">Bitbucket</span><span class="tag">Linux</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sechead"><b>02.</b> / work &amp; projects</div>
+    <div style="font-family:var(--mono);font-size:14px;color:var(--accent-2);margin-bottom:20px">OneClick IT Solutions · Software Engineer L2 &nbsp;<span style="color:var(--muted)">— 09/2022 – Present · Ahmedabad</span></div>
+
+    <div class="proj">
+      <div class="top">
+        <h3>WealthDoor</h3>
+        <span class="meta">Fintech · Python + Java microservices on AWS</span>
+      </div>
+      <p class="desc">Wealth-management &amp; robo-advisory platform.</p>
+      <ul>
+        <li>Built async FastAPI microservices (PostgreSQL, SQLAlchemy 2.0 / asyncpg, Alembic) in a domain-driven structure across KYC, advisory, orders, portfolio, cashflow, and notifications.</li>
+        <li>Integrated fintech APIs — BSE Star MF, Digio / CVL KRA / Cybrilla e-KYC, and Razorpay / RazorpayX — with HMAC webhook verification.</li>
+        <li>Implemented APScheduler workers for SIP execution, mandate sync, EOD NAV ingestion, and portfolio updates, plus a push/SMS/email notification pipeline (FCM, MSG91/Twilio, Resend).</li>
+        <li>Automated AWS provisioning with Python/boto3 — 38 ECR repositories plus API Gateway routes and CORS.</li>
+        <li>Built Jenkins CI/CD (Docker buildx → ECR → deploy) across dev / uit / uat / prod with in-pipeline DB migrations; authored multi-stage Dockerfiles and Jenkinsfiles for Python &amp; Java services.</li>
+        <li>Deployed containers to AWS EKS (us-east-1) and ran the India robo-advisory backend on AWS ECS (ap-south-1); instrumented with OpenTelemetry &amp; Prometheus, monitored via CloudWatch &amp; Grafana.</li>
+        <li>Integrated Redis caching, AWS S3 storage, and HashiCorp Vault secrets management.</li>
+      </ul>
+      <div class="stack">
+        <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLAlchemy</span><span class="tag">asyncpg</span><span class="tag">APScheduler</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">boto3</span><span class="tag">Docker</span><span class="tag">Jenkins</span><span class="tag">AWS EKS/ECS/ECR</span><span class="tag">OpenTelemetry</span><span class="tag">Prometheus</span><span class="tag">Vault</span>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="top">
+        <h3>Chavivim</h3>
+        <span class="meta">FastAPI · PostgreSQL / PostGIS · on-prem</span>
+      </div>
+      <p class="desc">Volunteer emergency-response coordination platform.</p>
+      <ul>
+        <li>Built an async FastAPI backend (PostgreSQL/PostGIS, SQLAlchemy, Alembic) with modular domains and geospatial responder routing (GeoAlchemy2 / Shapely).</li>
+        <li>Implemented JWT auth with role-based access control and OTP email/SMS flows; integrated Firebase Cloud Messaging and Twilio.</li>
+        <li>Deployed a 3-tier setup on an on-premise Linux server — marketing-site frontend, admin panel, and FastAPI/PostgreSQL backend.</li>
+      </ul>
+      <div class="stack">
+        <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL/PostGIS</span><span class="tag">GeoAlchemy2</span><span class="tag">Shapely</span><span class="tag">Alembic</span><span class="tag">JWT</span><span class="tag">Firebase</span><span class="tag">Twilio</span><span class="tag">Linux</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sechead"><b>03.</b> / about</div>
+    <h2>Backend depth, DevOps reach.</h2>
+    <p class="about" style="margin-top:14px">I'm a software engineer based in <b>Ahmedabad, India</b>, with around three years at <b>OneClick IT Solutions</b>. My work spans the full path a service takes to production — writing <b>async FastAPI</b> backends, wiring up fintech and messaging integrations, then automating their <b>Docker / Jenkins / AWS</b> delivery and keeping them observable with <b>OpenTelemetry, Prometheus, and Grafana</b>.</p>
+    <p class="about" style="margin-top:16px"><b>Education:</b> B.Tech, Silver Oak University, Ahmedabad (2020–2024).</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sechead"><b>04.</b> / contact</div>
+    <h2>Let's build something.</h2>
+    <div class="contact-grid">
+      <a class="clink" href="mailto:harshbantuya@gmail.com"><span class="ico">✉️</span><span><small>Email</small>harshbantuya@gmail.com</span></a>
+      <a class="clink" href="tel:+919979491936"><span class="ico">📱</span><span><small>Phone</small>+91 99794 91936</span></a>
+      <a class="clink" href="https://linkedin.com/in/harsh-bantuya" target="_blank" rel="noopener"><span class="ico">💼</span><span><small>LinkedIn</small>harsh-bantuya</span></a>
+      <a class="clink" href="#"><span class="ico">📍</span><span><small>Location</small>Ahmedabad, India</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built &amp; deployed by Harsh Bantuya · Python &amp; DevOps
+</footer>
+
+</body>
+</html>
